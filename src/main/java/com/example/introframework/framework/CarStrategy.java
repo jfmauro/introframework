@@ -1,12 +1,11 @@
 package com.example.introframework.framework;
 
-import com.example.introframework.annotation.CarFactories;
-import com.example.introframework.annotation.CarType;
+import com.example.introframework.annotation.CarTag;
 import com.example.introframework.entity.Car;
 import com.example.introframework.factory.FactoryOfCar;
 
 public class CarStrategy {
-    @CarFactories
+    @CarTag
     private FactoryOfCar<? extends Car> factory;
 
     public Car construct(Long id, String brand, String model){

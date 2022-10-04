@@ -1,6 +1,6 @@
 package com.example.introframework;
 
-import com.example.introframework.annotation.CarType;
+import com.example.introframework.entity.CarType;
 import com.example.introframework.entity.Car;
 import com.example.introframework.framework.AppSpecific;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

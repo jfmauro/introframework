@@ -1,12 +1,12 @@
 package com.example.introframework.framework;
 
-import com.example.introframework.annotation.CarFactories;
-import com.example.introframework.annotation.CarType;
+import com.example.introframework.annotation.CarTag;
+import com.example.introframework.entity.CarType;
 import com.example.introframework.entity.Car;
 
 public class AppSpecific {
 
-    @CarFactories
+    @CarTag
     private CarStrategy strategy = new CarStrategy();
 
 

@@ -1,7 +1,7 @@
 package com.example.introframework.framework;
 
-import com.example.introframework.annotation.CarFactories;
-import com.example.introframework.annotation.CarType;
+import com.example.introframework.annotation.CarTag;
+import com.example.introframework.entity.CarType;
 import com.example.introframework.entity.Car;
 import com.example.introframework.factory.FactoryOfCar;
 import com.example.introframework.factory.SportFactory;
@@ -27,23 +27,18 @@ public class AppSpecificFramework {
     private void instanciate(AppSpecific appSpecific, CarStrategy strategy, CarType carType) throws IllegalAccessException {
         Field[] declaredFields = appSpecific.getClass().getDeclaredFields();
         for (Field f : declaredFields){
-            if (f.isAnnotationPresent(CarFactories.class)){
+            if (f.isAnnotationPresent(CarTag.class)){
                 f.setAccessible(true);
-                //CarFactories annotation = f.getAnnotation(CarFactories.class);
-                //CarType name = annotation.val();
-                //f.set(appSpecific, map.get(name));
                 Class<?> innerClass = f.get(appSpecific).getClass();
                 Field[] innerFields = innerClass.getDeclaredFields();
                 for (Field innerField : innerFields){
-                    if (innerField.isAnnotationPresent(CarFactories.class)){
+                    if (innerField.isAnnotationPresent(CarTag.class)){
                         innerField.setAccessible(true);
                         innerField.set(strategy, map.get(carType));
                     }
                 }
             }
         }
-
     }
-
 
 }
