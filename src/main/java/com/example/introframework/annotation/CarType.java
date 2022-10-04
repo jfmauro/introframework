@@ -1,5 +1,5 @@
 package com.example.introframework.annotation;
 
-public enum CarFactory {
+public enum CarType {
     SUV, SPORT;
 }
